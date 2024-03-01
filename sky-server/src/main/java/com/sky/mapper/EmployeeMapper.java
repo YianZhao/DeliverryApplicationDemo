@@ -33,4 +33,18 @@ public interface EmployeeMapper {
      * @return
      */
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    /**
+     * 根据主键动态修改属性
+     * @param employee
+     */
+    void update(Employee employee);
+
+    /**
+     * 查询员工信息
+     * @param id
+     * @return
+     */
+    @Select("select *from sky_take_out.employee where id = #{id}")
+    Employee getById(Long id);
 }
